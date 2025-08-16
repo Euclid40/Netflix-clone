@@ -733,4 +733,193 @@ max-width: 1456px;
     .trending, .trending-wrapper, .trending-row {
         overflow:visible;
     }
-  }
+  }.more {
+    text-align: center; /* keep image centered */
+}
+.more img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Trending row & scroll buttons - responsive behavior without changing existing colors/widths */
+.trending-wrapper {
+    position: relative; /* for absolute-positioned scroll buttons */
+}
+
+.trending-row {
+    display: flex;
+    gap: 12px;
+    padding: 12px 6px;
+    overflow-x: auto;
+    overflow-y: visible; /* allow ranks to overflow vertically */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+}
+
+/* ensure each card stays inline and doesn't shrink unexpectedly */
+.trending-row .card {
+    flex: 0 0 auto;
+    width: 200px;      /* original width preserved where possible */
+    min-width: 130px;  /* allow shrink on small viewports */
+    display: inline-block;
+    position: relative; /* rank positions relative to each card */
+    overflow: visible;  /* let rank show outside image */
+}
+
+/* card images scale responsively */
+.trending-row .card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+}
+
+/* Scroll buttons (keeps existing color scheme) */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: rgba(0,0,0,0.5); /* unobtrusive overlay */
+    color: #fff;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 30;
+    cursor: pointer;
+}
+.scroll-btn.left { left: 8px; }
+.scroll-btn.right { right: 8px; }
+
+/* nicer scrollbar for horizontal scroll on supporting browsers */
+.trending-row::-webkit-scrollbar {
+    height: 8px;
+}
+.trending-row::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.12);
+    border-radius: 4px;
+}
+
+/* Responsive tweaks */
+
+/* Tablet / small laptop */
+@media (max-width: 768px) {
+    .trending-row .card {
+        width: 160px;
+        min-width: 140px;
+    }
+    .scroll-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .trending-row {
+        gap: 10px;
+        padding: 8px 6px;
+    }
+    .trending-row .card {
+        width: 130px;
+        min-width: 120px;
+    }
+    .scroll-btn {
+        display: none; /* hide large scroll buttons on very small screens to rely on touch scrolling */
+    }
+    .more img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Small adjustments to avoid clipping when ancestor containers had overflow:hidden */
+@media (max-width: 1024px) {
+    .trending, .trending-wrapper, .trending-row {
+        overflow: visible;
+    }
+}
+.trending-wrapper {
+    position: relative; /* container for absolute-positioned buttons */
+}
+
+.trending-row {
+    display: flex;
+    gap: 12px;
+    padding: 12px 6px;
+    overflow-x: auto;
+    overflow-y: visible; /* allow rank to overflow vertically */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+}
+
+/* ensure each card stays inline and doesn't shrink unexpectedly */
+.trending-row .card {
+    flex: 0 0 auto;
+    width: 200px;      /* keeps existing desktop width */
+    min-width: 130px;  /* allows shrink on small viewports */
+    display: inline-block;
+    position: relative; /* rank positions relative to each card */
+    overflow: visible;  /* let rank show outside image */
+}
+
+/* card images scale responsively */
+.trending-row .card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+}
+
+/* rank visible outside card */
+.trending-row .card .rank {
+    position: absolute;
+    top: -12px;
+    left: 8px;
+    z-index: 20;
+    pointer-events: none;
+}
+
+/* Scroll buttons positioning (keeps existing look — no color/width overrides) */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 30;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+}
+.scroll-btn.left { left: 8px; }
+.scroll-btn.right { right: 8px; }
+
+/* nicer horizontal scrollbar on supporting browsers */
+.trending-row::-webkit-scrollbar {
+    height: 8px;
+}
+.trending-row::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .trending-row .card { width: 160px; min-width: 140px; }
+    .scroll-btn { width: 40px; height: 40px; }
+}
+
+@media (max-width: 480px) {
+    .trending-row { gap: 10px; padding: 8px 6px; }
+    .trending-row .card { width: 130px; min-width: 120px; }
+    .scroll-btn { display: none; } /* rely on touch scrolling on small screens */
+}
