@@ -1,188 +1,299 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
 body {
-  margin: 0;
-  font-family: "Segoe UI", sans-serif;
-  background-color: black;
-  color: white;
+    background-color: black;
 }
 
+/* Navigation Bar */
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    max-width: 60vw;
+    height: 62px;
 }
 
-.flex {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+nav img {
+    width: 114px;
+    position: relative;
+    z-index: 10;
 }
 
-.eng {
-  padding: 5px;
-  border-radius: 4px;
+nav button {
+    position: relative;
+    z-index: 10;
 }
 
-.signin {
-  background: red;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
+/* Hero Section */
 .hero {
-  text-align: center;
-  margin-top: 100px;
-  font-size: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    gap: 23px;
+    padding: 0 30px;
 }
 
-.input1 {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
+.hero > :first-child,
+.hero > :nth-child(2) {
+    font-weight: bolder;
+    font-size: 48px;
+    text-align: center;
 }
 
+.hero > :nth-child(3),
+.hero > :nth-child(4) {
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* Background with Black Overlay */
+.main {
+    background-image: url("assests/img/bg.jpg");   /* ✅ fixed */
+    background-position: center center;
+    background-size: max(1200px, 100vw);
+    background-repeat: no-repeat;
+    height: 70vh;
+    position: relative;
+}
+
+.main .box {
+    height: 70vh;
+    width: 100%;
+    opacity: 0.69;
+    position: absolute;
+    top: 0;
+    background-color: black;
+}
+
+/* Buttons */
 .btn {
-  padding: 12px;
-  width: 300px;
-  border-radius: 4px;
-  border: none;
+    padding: 3px 8px;
+    font-weight: bold;
+    background-color: rgba(248, 243, 243, 0.021);
+    color: white;
+    border: 1px solid white;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-.btn2 {
-  background: red;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
+.btn-red {
+    background-color: red;
+    color: white;
+    padding: 3px 24px;
+    font-size: 20px;
+    border-radius: 4px;
 }
 
+.btn-red-sm {
+    background-color: red;
+    color: white;
+}
+
+.btn3 {
+    background-color: red;
+    color: white;
+    padding: 10px 30px;
+    font-size: 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    width: 250px;
+}
+
+.btn4 {
+    background-color: red;
+    color: white;
+    padding: 12px 40px;
+    font-size: 25px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Inputs */
+.input1,
+.input2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.input1 input,
+.input2 input {
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    width: 350px;
+    max-width: 90%;
+}
+
+/* Trending Section */
 .trending {
-  margin: 40px;
-  position: relative;
+    padding: 50px 5%;
+    color: white;
+}
+
+.trending h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
 }
 
 .trending-row {
-  display: flex;
-  gap: 15px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-}
-
-.trending-row::-webkit-scrollbar {
-  display: none;
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    scroll-behavior: smooth;
+    padding-bottom: 15px;
 }
 
 .card {
-  min-width: 200px;
-  position: relative;
+    background: #222;
+    border-radius: 8px;
+    flex: 0 0 auto;
+    min-width: 180px;
+    width: 180px;
+    height: 270px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.1);
 }
 
 .card img {
-  width: 100%;
-  border-radius: 8px;
-}
-
-.rank {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  background: red;
-  padding: 5px 10px;
-  border-radius: 50%;
-  font-weight: bold;
-}
-
-.scroll-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.7);
-  border: none;
-  color: white;
-  font-size: 30px;
-  cursor: pointer;
-  padding: 10px;
-}
-
-.scroll-btn.left {
-  left: 0;
-}
-
-.scroll-btn.right {
-  right: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
 }
 
 /* Footer */
-footer {
-  background: #111;
-  color: #bbb;
-  padding: 40px;
-  margin-top: 50px;
+.footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 40px 5%;
+    color: #aaa;
+    font-size: 14px;
+    background-color: #111;
 }
 
-.footer-cols {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.footer-cols ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-cols li {
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-
-.copy {
-  text-align: center;
-  margin-top: 20px;
-}
-
-/* Responsive */
-@media screen and (max-width: 768px) {
-  nav {
+.footer-links {
+    display: flex;
     flex-direction: column;
     gap: 10px;
-  }
-
-  .hero {
-    font-size: 18px;
-    margin-top: 50px;
-  }
-
-  .input1 {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .btn {
-    width: 90%;
-  }
-
-  .trending-row {
-    gap: 10px;
-  }
-
-  .footer-cols {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
-@media screen and (max-width: 480px) {
-  .footer-cols {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
+.footer-links a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* 📱 Responsive Styles */
+@media (max-width: 1024px) {
+    .hero > :first-child,
+    .hero > :nth-child(2) {
+        font-size: 40px;
+    }
+
+    .btn3 {
+        width: 100%;
+    }
+
+    .more img {
+        width: 100%;
+        height: auto;
+    }
+
+    .footer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero {
+        margin: 50px 20px;
+        text-align: center;
+    }
+
+    .hero > :first-child,
+    .hero > :nth-child(2) {
+        font-size: 32px;
+    }
+
+    .btn,
+    .btn3,
+    .btn4 {
+        width: 100%;
+    }
+
+    .input1,
+    .input2 {
+        flex-direction: column;
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .trending-row {
+        gap: 15px;
+    }
+
+    .card {
+        min-width: 140px;
+        width: 140px;
+    }
+
+    .footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero > :first-child,
+    .hero > :nth-child(2) {
+        font-size: 24px;
+    }
+
+    .hero > :nth-child(3),
+    .hero > :nth-child(4) {
+        font-size: 14px;
+    }
+
+    .card {
+        min-width: 120px;
+        width: 120px;
+    }
+
+    .btn2,
+    .btn4 {
+        font-size: 1.2rem;
+        width: 100%;
+    }
 }
